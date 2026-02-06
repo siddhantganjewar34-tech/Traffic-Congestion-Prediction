@@ -1,0 +1,115 @@
+# AI-Based Traffic Congestion Incident Detection
+*(Capstone Project: Smart Traffic Congestion Detection System)*
+
+**Project Status:** Academic Research Project
+**Student Name:** Siddhant Ganjewar
+**Documentation Version:** 1.2 | **Last Updated:** February 2026
+**LinkedIn -- www.linkedin.com/in/siddhant-ganjewar-86650b3a3
+---
+
+## 1. Project Overview
+
+Traffic congestion costs cities billions in lost productivity and delays emergency response times. This project addresses that challenge by using machine learning to analyze road conditions and predict whether traffic flow is **Normal** or **Congested** before critical thresholds are reached.
+
+The system processes traffic data including **vehicle density, speed, and queue length** to classify road segments. This binary classification approach provides city traffic managers with actionable insights.
+
+The model achieves approximately **85% accuracy** on the test set using a **Random Forest Classifier** (Train-Test Split: 80/20, Random State: 42).
+
+---
+
+## 2. Dataset Information
+
+The model was trained on a structured traffic flow dataset designed for academic analysis.
+
+**Dataset Specifications:**
+* **Total Features:** 11 input parameters
+* **Target Variable:** `Traffic_Status` (0 = Normal, 1 = Congested)
+* **Source:** Custom Academic Dataset (Simulated Traffic Parameters)
+
+**Feature Columns:**
+1.  **Speed:** Average vehicle velocity (km/h).
+2.  **Density:** Vehicles per unit area (indicating traffic pressure).
+3.  **Queue Length:** Length of stopped vehicle lines (meters).
+4.  **Road Width:** Physical width of the road segment (meters).
+5.  **Time of Day:** Temporal data to identify rush hour patterns.
+
+*Note: The dataset focuses on core traffic physics (Flow = Speed × Density).*
+
+---
+
+## 3. Project Structure
+
+```text
+Smart-Traffic-Congestion-Detection/
+│
+├── Traffic_Model_Code.ipynb    # Main source code (Data Analysis + Model)
+├── traffic_dataset.csv         # Dataset used for training
+├── README.md                   # Project documentation
+└── Graphs/                     # Generated Visualizations
+    ├── confusion_matrix.png
+    ├── risk_map.png
+    └── feature_importance.png
+
+
+
+4. Technical Foundation
+Algorithm: Random Forest Classifier The choice of Random Forest was driven by its ability to handle complex, non-linear relationships between traffic parameters. It is robust against overfitting and provides clear feature importance rankings.
+
+Model Pipeline:
+
+Data Loading: Ingestion of raw traffic data.
+
+Preprocessing: Handling missing values and formatting features.
+
+Splitting: Data divided into 80% Training and 20% Testing sets.
+
+Training: Fitting the Random Forest model.
+
+Evaluation: Validating using Accuracy Score and Confusion Matrix.
+
+5. Implementation Challenges & Limitations
+Lack of Event Context: The dataset does not currently include random events like accidents or weather changes. The model predicts congestion based on physics (Speed/Density) but cannot identify the specific cause.
+
+No GPS Coordinates: The system identifies that a road is congested but does not provide specific GPS coordinates for the jam's start/end point.
+
+Binary Output: The current model flags "Congested" or "Normal" but does not estimate the duration of the delay.
+
+6. Future Development Roadmap
+Real-Time Integration: Connect to live traffic sensors or camera feeds.
+
+GPS Mapping: Add geospatial data to visualize "Hotspots" on a live map.
+
+Smart Signal Control: Use predictions to automatically adjust traffic light timings.
+
+7. Installation & Usage
+Prerequisites:
+
+Python 3.7+
+
+Jupyter Notebook or Google Colab
+
+File: traffic_dataset.csv
+
+How to Run:
+
+Open the Notebook: Launch Traffic_Model_Code.ipynb in Google Colab or Jupyter.
+
+Upload Data: Ensure traffic_dataset.csv is uploaded to the session storage.
+
+Execute: Run all cells sequentially.
+
+View Results: The notebook will output the Accuracy Score, Confusion Matrix, and Risk Heatmap.
+
+8. Credits
+Developer:
+
+Siddhant Ganjewar
+
+1st Year Engineering Student
+
+Project Type: Machine Learning Capstone
+
+9. License
+Academic Use Only Copyright (c) 2026 Siddhant Ganjewar.
+
+This project is developed for educational and research purposes. You are free to view and learn from this code for your own academic projects. Commercial use or redistribution requires explicit permission from the author.
